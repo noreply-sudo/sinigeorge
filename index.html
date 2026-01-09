@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrs. Sini George - Network Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f8ff; /* Light, airy background */
+        }
+        /* Custom card styling for shadow and hover effect */
+        .photo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            height: 100%; /* Ensure all cards have the same height in the grid cell */
+        }
+        .photo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 40px -10px rgba(45, 55, 72, 0.2); /* Stronger, professional shadow */
+        }
+        /* Style for the caption text */
+        .caption-text {
+            color: #0b2e4b; /* Deep blue text */
+        }
+
+        /* ------------------------------------------------ */
+        /* FIX: Ensure heads are not cut off and image covers the container */
+        /* object-position: top ensures the top of the image (the head) is visible. */
+        /* ------------------------------------------------ */
+        .photo-card img {
+            object-fit: cover;
+            object-position: top; /* <--- CRITICAL FIX FOR CUT-OFF HEADS */
+        }
+        
+        /* ------------------------------------------------ */
+        /* MODAL (IMAGE EXPANSION) STYLES */
+        /* ------------------------------------------------ */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 9999; /* High z-index to be on top of everything */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.95); /* Black background with opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            object-fit: contain; /* Ensures the expanded image fits within the modal */
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-10">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="text-center mb-16 bg-white p-8 rounded-xl shadow-2xl border-b-4 border-blue-600">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-blue-700 mb-2 tracking-tight">
+                Mrs. Sini George
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 font-light italic">
+                Nursing Educator & Digital Nursing Edtech Innovator
+            </p>
+            <p class="text-md text-yellow-600 font-medium mt-1">
+                (MSc Nursing, PhD Pursuing) - COO at Ezi Nurse
+            </p>
+            
+            <div class="mt-6 pt-4 border-t border-blue-100 flex flex-wrap justify-center gap-2">
+                <span class="text-sm font-medium text-blue-800 bg-blue-100 py-1 px-3 rounded-full shadow-inner">
+                    Clinical Training & Digital Learning
+                </span>
+                <span class="text-sm font-medium text-blue-800 bg-blue-100 py-1 px-3 rounded-full shadow-inner">
+                    Academic Research & EBP
+                </span>
+                <span class="text-sm font-medium text-blue-800 bg-blue-100 py-1 px-3 rounded-full shadow-inner">
+                    Entrepreneurship & Strategy
+                </span>
+            </div>
+        </header>
+
+        <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            </div>
+
+        <footer class="mt-20 text-center text-gray-500 text-sm">
+            <p>Showcasing Leadership and Influence in Education & Public Service.</p>
+        </footer>
+    </div>
+
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage">
+    </div>
+
+
+    <script>
+        // Data Array containing the file names and the Google Drive File IDs.
+        // **sortOrder** property added for your specific arrangement requirement:
+        // 1: Health Minister(s)
+        // 2: Governor(s)
+        // 3: All Ministers and Speaker
+        // 4: HD Revanna
+        // 5: Ivan Nigli
+        // 6: All Unnamed/Additional
+        const photoData = [
+            { fileName: "with H.D. Revanna, ex minister, Karnataka.PNG", fileId: "1Yq6GBRl2Nbw2bnLDEv8aZ1l_y9CXUX1o", sortOrder: 4 },
+            { fileName: "with karnataka ex- mla Ivan Nigli.jpeg", fileId: "1oC7X2TaBjyY0c6QpY92Jhaee6g4OQZ44", sortOrder: 5 },
+            { fileName: "with minister of forest, karnataka (Eshwara Khandre).PNG", fileId: "16jN_pSaPbBwxwkgN-iY47E0L2aJ82JY2", sortOrder: 3 },
+            { fileName: "WhatsApp Image 2025-10-16 at 7.07.55 PM.jpeg", fileId: "1fJ6zweArAKav4yuq1ggJbTO3bdQiD46B", sortOrder: 6 }, // Unnamed
+            { fileName: "with medical education minister, Karnataka, Dr. Sharan Prakash Patil - 2.PNG", fileId: "1JMVNssLFT1DNjz_Aajd1bBeF5VrRRiQr", sortOrder: 3 },
+            { fileName: "with U. T. Khader, karnataka speaker.jpeg", fileId: "1DKI9HmRyp4jOWoEssEdbCzcIkwp7hdBe", sortOrder: 3 },
+            { fileName: "WhatsApp Image 2025-10-16 at 6.57.12 PM.jpeg", fileId: "1d9KGdAKxNUTgQwIu3sEPas4sf2hsPzON", sortOrder: 6 }, // Unnamed
+            { fileName: "WhatsApp Image 2025-10-16 at 6.56.31 PM.jpeg", fileId: "16Sy3tl10kUn73_iEiDVvyUq2zNGRieeB", sortOrder: 6 }, // Unnamed
+            { fileName: "With health minister Karnataka.jpeg", fileId: "1YOLVFteEGqFYintS4f3U9HeqavbKaVp2", sortOrder: 1 },
+            { fileName: "IMG_4255.JPG", fileId: "1u2umOZhotWCaczLKJlquzUfv2EWh7GtV", sortOrder: 6 }, // Unnamed
+            { fileName: "IMG_4188.JPG", fileId: "1Ztm_D29c2ya_qA1KxtC0Fv1TPfwpnWZs", sortOrder: 6 }, // Unnamed
+            { fileName: "IMG_4068.JPG", fileId: "1MsEil84CBwUYwHLx3vhu831jj8Ejr92R", sortOrder: 6 }, // Unnamed
+            { fileName: "2.JPG", fileId: "1yGV3zZcEikFnW1Gp3iNVDGuoiYV2K_D3", sortOrder: 6 }, // Unnamed
+            { fileName: "3.JPG", fileId: "1GLoRb0Q82qVkcfwhXtyylUtyKLdfbfwu", sortOrder: 6 }, // Unnamed
+            { fileName: "1.JPG", fileId: "1k2ISHOpas9cjSlr41ubW85EOYJpnjTu4", sortOrder: 6 }, // Unnamed
+            { fileName: "with medical education minister, Karnataka, Dr. Sharan Prakash Patil - 1.PNG", fileId: "1aHdQx954YX8gDDwFfCB4Lr6kn5OOnEBT", sortOrder: 3 },
+            { fileName: "with health minister KA, DINESH GUNDU RAO.PNG", fileId: "17eqvUzTDOATiDwNLRR5XlvOgrj5AkrbY", sortOrder: 1 },
+            { fileName: "with Karnataka Governor.PNG", fileId: "1Ueod8QB8KmdWjj9YR1t8r95vfJMuZCkC", sortOrder: 2 },
+            { fileName: "with Karnataka Governor 2.JPG", fileId: "1LQI0DXzgRDVwNFqBUBGIqas0JgYDbpC4", sortOrder: 2 },
+            
+            // **New Images Added** (using the new direct-view format for better embed reliability)
+            { fileName: "Additional Image 1 (Requested).JPG", fileId: "1vZXBK5OtASAoGzq2ZwzwN65n-YOfe-hr", sortOrder: 6 },
+            { fileName: "Additional Image 2 (Requested).JPG", fileId: "1dulvupwMJgO_66A70J6QQi7y5VMQkOBZ", sortOrder: 6 }
+        ];
+
+        const galleryContainer = document.getElementById('gallery-container');
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        // --- Core Functions for Image Loading and Captioning ---
+
+        /**
+         * Generates the googleusercontent.com image URL from the file ID.
+         * NOTE: This URL format often requires the file/folder to be publicly shared and can be less reliable
+         * than the drive.google.com/uc endpoint.
+         */
+        function generateImageUrl(fileId) {
+            // Reverting to the requested googleusercontent.com format with size parameter 's1000'
+            // This format typically looks like: lh3.googleusercontent.com/d/FILE_ID=sS1000
+            return `https://lh3.googleusercontent.com/d/${fileId}=s1000`;
+        }
+
+        /**
+         * Cleans up the filename to create a human-readable caption.
+         */
+        function createCaption(filename) {
+            const baseName = filename.replace(/\.[^/.]+$/, "").trim();
+            
+            if (baseName.includes('(') && baseName.includes(')')) {
+                // If it's a specific requested image with a custom name
+                return baseName.replace(/\(.+\)/, '').trim() + '!'; 
+            }
+
+            const isNamed = baseName.toLowerCase().startsWith('with ') || baseName.toLowerCase().startsWith('with_');
+
+            if (!isNamed) {
+                return 'Network Interaction Photo'; // Default for unnamed/generic photos
+            }
+
+            let caption = baseName.replace(/[_-]/g, ' ');
+            caption = caption.charAt(0).toUpperCase() + caption.slice(1);
+            
+            // Clean up common file naming artifacts
+            caption = caption.replace(/ Png| Jpg| Jpeg/g, ''); 
+            
+            return caption.trim() + '!';
+        }
+
+        /**
+         * Creates and appends a single photo card element to the gallery.
+         */
+        function createPhotoCard(photo) {
+            const caption = createCaption(photo.fileName);
+            const imageUrl = generateImageUrl(photo.fileId);
+
+            // Card Container (White background, rounded, elevated)
+            const card = document.createElement('div');
+            card.className = 'photo-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col';
+            card.setAttribute('data-file-id', photo.fileId); // Attach file ID for easy lookup
+
+            // Image Wrapper: w-full pt-[75%] creates a 4:3 aspect ratio container
+            const imageWrapper = document.createElement('div');
+            imageWrapper.className = 'w-full pt-[75%] relative overflow-hidden bg-gray-100';
+
+            // Image Element
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = caption;
+            image.className = 'absolute inset-0 w-full h-full object-cover'; // The object-position: top is in the style block
+            
+            // Fallback for image loading error
+            image.onerror = function() {
+                image.style.display = 'none';
+                const fallback = document.createElement('div');
+                fallback.className = 'absolute inset-0 flex items-center justify-center p-4 text-center text-sm font-extrabold bg-red-100 text-red-700 leading-tight border-4 border-red-500 rounded-lg';
+                fallback.innerHTML = 'IMAGE FAILED. <br> 🛑 **ACTION:** Check Google Drive Link Sharing **"Anyone with the link"**.';
+                imageWrapper.appendChild(fallback);
+            };
+            
+            imageWrapper.appendChild(image);
+            
+            // Caption Area
+            const captionDiv = document.createElement('div');
+            captionDiv.className = 'p-4 flex flex-col justify-between flex-grow';
+
+            const captionText = document.createElement('p');
+            captionText.className = 'caption-text text-lg font-bold mb-2';
+            captionText.textContent = caption;
+
+            // Optional: Original filename reference
+            const fileNameRef = document.createElement('p');
+            fileNameRef.className = 'text-xs text-gray-400 mt-auto truncate';
+            fileNameRef.textContent = `File: ${photo.fileName}`;
+
+            captionDiv.appendChild(captionText);
+            captionDiv.appendChild(fileNameRef);
+            
+            card.appendChild(imageWrapper);
+            card.appendChild(captionDiv);
+
+            return card; // Return the created card element
+        }
+
+        // --- Initialization and Event Handling ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Sort the Data Array
+            photoData.sort((a, b) => {
+                // Primary sort: by the explicit sortOrder (1, 2, 3, 4, 5, 6)
+                const orderDiff = a.sortOrder - b.sortOrder;
+                if (orderDiff !== 0) {
+                    return orderDiff;
+                }
+                
+                // Secondary sort: alphabetical by filename for items in the same group (e.g., all unnamed)
+                return a.fileName.localeCompare(b.fileName);
+            });
+
+
+            // 2. Render and Collect Cards
+            const cardElements = [];
+            photoData.forEach(photo => {
+                cardElements.push(createPhotoCard(photo));
+            });
+
+            // Append all sorted cards to the container
+            cardElements.forEach(card => {
+                galleryContainer.appendChild(card);
+            });
+            
+
+            // 3. Add Click Listener for Image Expansion
+            galleryContainer.querySelectorAll('.photo-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const imgElement = this.querySelector('img');
+                    
+                    // Only open modal if the image source is valid (not an error fallback)
+                    if (imgElement && imgElement.style.display !== 'none') {
+                        modal.style.display = "block";
+                        // Use the original image URL for the zoom, which is already in the src attribute
+                        modalImg.src = imgElement.src.replace('=s1000', '=s2000'); // Request larger size for zoom
+                    }
+                });
+            });
+
+            // 4. Close Modal Handlers
+            closeBtn.onclick = function() {
+              modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+        });
+    </script>
+</body>
+</html>
