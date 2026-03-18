@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mrs. Sini George — Nursing Educator & Edtech Innovator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --G1: #1E3932;
+  --G2: #00704A;
+  --G3: #D4E9E2;
+  --G4: #F1F8F5;
+  --gold: #CBA258;
+  --gold-lt: #F3E4C6;
+  --cream: #FAF7F2;
+  --ink: #1A1A1A;
+  --muted: #5C5C5C;
+  --border: #E0D9D0;
+  --white: #FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Sora',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--G3)}
+::-webkit-scrollbar-thumb{background:var(--G2);border-radius:3px}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--G1);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.35)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-mark{width:34px;height:34px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-mark svg{width:24px;height:24px}
+.nav-brand{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--white)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--G2);color:var(--white);border:none;padding:8px 18px;border-radius:100px;cursor:pointer;transition:background .25s}
+.nav-cta:hover{background:#005a38}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ─── HERO ─── */
+.hero{background:var(--G1);min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 5vw 0;position:relative;overflow:hidden}
+.hero-rings{position:absolute;right:-180px;top:-180px;pointer-events:none}
+.hero-rings circle{fill:none;stroke:rgba(255,255,255,.03)}
+.hero-leaf{position:absolute;left:-60px;bottom:80px;opacity:.06;pointer-events:none}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.hero-name{font-family:'Lora',serif;font-size:clamp(52px,8vw,100px);font-weight:700;line-height:1;color:var(--white);letter-spacing:-.02em;margin-bottom:12px}
+.hero-name em{font-style:italic;font-weight:400;color:var(--G3)}
+.hero-title{font-family:'Lora',serif;font-size:clamp(18px,2.5vw,26px);font-weight:400;font-style:italic;color:rgba(255,255,255,.55);margin-bottom:32px}
+.hero-desc{font-size:16px;line-height:1.8;color:rgba(255,255,255,.6);max-width:520px;margin-bottom:40px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+.btn-primary{background:var(--G2);color:var(--white);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:14px 28px;border-radius:100px;text-decoration:none;transition:background .25s,transform .2s}
+.btn-primary:hover{background:#005a38;transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--white);font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:13px 28px;border-radius:100px;border:1px solid rgba(255,255,255,.25);text-decoration:none;transition:border-color .25s,background .25s}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.07)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.08);margin:0 -5vw}
+.stat-cell{padding:28px 5vw;background:var(--G1)}
+.stat-num{font-family:'Lora',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--white);line-height:1;margin-bottom:6px}
+.stat-num span{font-size:.55em;font-weight:400;color:var(--gold)}
+.stat-label{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.wave-hero{display:block;width:100%;height:70px;background:var(--G1)}
+.wave-hero path{fill:var(--cream)}
+
+/* ─── ABOUT ─── */
+.about{padding:100px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+@media(max-width:900px){.about{grid-template-columns:1fr;gap:48px}}
+.about-label{font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--G2);margin-bottom:16px}
+.about-heading{font-family:'Lora',serif;font-size:clamp(32px,4vw,48px);font-weight:700;color:var(--G1);line-height:1.15;margin-bottom:24px}
+.about-heading em{font-style:italic;font-weight:400;color:var(--G2)}
+.about-body{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:20px}
+.about-body strong{color:var(--G1);font-weight:500}
+.cred-list{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.cred-item{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:12px;border-left:4px solid var(--G2)}
+.cred-icon{width:36px;height:36px;background:var(--G4);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cred-icon svg{width:18px;height:18px;stroke:var(--G2);fill:none;stroke-width:1.8}
+.cred-text strong{display:block;font-size:13px;font-weight:600;color:var(--G1);margin-bottom:2px}
+.cred-text span{font-size:12px;color:var(--muted)}
+.about-visual{position:relative}
+.about-card-stack{position:relative;height:420px}
+.about-main-card{position:absolute;inset:0;background:var(--G1);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+.about-main-card::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;border:60px solid rgba(255,255,255,.05)}
+.about-card-bg{font-family:'Lora',serif;font-size:120px;font-weight:700;color:rgba(255,255,255,.05);position:absolute;top:-10px;right:20px;line-height:1}
+.about-card-content .title{font-family:'Lora',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:6px}
+.about-card-content .sub{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+.about-float{position:absolute;top:-24px;right:-24px;background:var(--gold);border-radius:16px;padding:18px 20px;box-shadow:0 12px 32px rgba(0,0,0,.15)}
+.about-float .num{font-family:'Lora',serif;font-size:32px;font-weight:700;color:var(--white);line-height:1}
+.about-float .lbl{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
+.about-float2{position:absolute;bottom:-20px;left:-20px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:14px 18px;box-shadow:0 8px 24px rgba(0,0,0,.08);display:flex;align-items:center;gap:12px}
+.af2-dot{width:10px;height:10px;background:var(--G2);border-radius:50%;flex-shrink:0}
+.af2-text{font-size:12px;font-weight:500;color:var(--G1)}
+
+/* ─── SKILLS / EXPERTISE ─── */
+.expertise{background:var(--G1);padding:100px 5vw;position:relative;overflow:hidden}
+.expertise-rings{position:absolute;right:-100px;bottom:-100px;pointer-events:none;opacity:.6}
+.section-label-light{font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center}
+.section-heading-light{font-family:'Lora',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:var(--white);text-align:center;margin-bottom:12px}
+.section-sub-light{font-size:15px;color:rgba(255,255,255,.5);text-align:center;max-width:520px;margin:0 auto 60px}
+.expertise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.exp-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;transition:background .3s,transform .3s,border-color .3s;position:relative;overflow:hidden}
+.exp-card:hover{background:rgba(255,255,255,.1);transform:translateY(-6px);border-color:rgba(255,255,255,.2)}
+.exp-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(203,162,88,.06)}
+.exp-num{font-family:'Lora',serif;font-size:48px;font-weight:700;color:rgba(255,255,255,.08);line-height:1;margin-bottom:-16px}
+.exp-icon{width:48px;height:48px;background:var(--G2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.exp-icon svg{width:24px;height:24px;stroke:var(--white);fill:none;stroke-width:1.8}
+.exp-title{font-family:'Lora',serif;font-size:20px;font-weight:600;color:var(--white);margin-bottom:10px}
+.exp-body{font-size:13px;line-height:1.75;color:rgba(255,255,255,.5)}
+.exp-tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px}
+.exp-tag{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--G3);background:rgba(255,255,255,.07);padding:4px 10px;border-radius:100px}
+
+/* ─── EZI NURSE FEATURE ─── */
+.ezinurse{padding:100px 5vw;background:var(--cream)}
+.en-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:900px){.en-inner{grid-template-columns:1fr;gap:48px}}
+.en-phone{position:relative}
+.phone-frame{background:var(--G1);border-radius:44px;padding:20px;box-shadow:0 40px 80px rgba(30,57,50,.25);width:280px;margin:0 auto;border:2px solid rgba(255,255,255,.15)}
+.phone-screen{background:#0d2b24;border-radius:28px;overflow:hidden;height:500px;position:relative;padding:20px}
+.phone-status{display:flex;justify-content:space-between;margin-bottom:14px}
+.phone-status span{font-size:9px;color:rgba(255,255,255,.5);font-weight:500}
+.phone-app-logo{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.phone-app-logo .dot{width:28px;height:28px;background:var(--G2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--white)}
+.phone-app-logo span{font-size:14px;font-weight:600;color:var(--white)}
+.phone-card{background:rgba(255,255,255,.08);border-radius:16px;padding:16px;margin-bottom:12px;border:1px solid rgba(255,255,255,.08)}
+.phone-card-label{font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.phone-card-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px}
+.phone-card-sub{font-size:10px;color:rgba(255,255,255,.45)}
+.phone-progress{height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin-top:10px;overflow:hidden}
+.phone-progress-fill{height:100%;border-radius:2px;background:var(--G2)}
+.phone-stat-row{display:flex;gap:8px;margin-top:12px}
+.phone-stat{flex:1;background:rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:center}
+.phone-stat .n{font-size:16px;font-weight:700;color:var(--white);font-family:'Lora',serif}
+.phone-stat .l{font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em}
+.en-badge{position:absolute;top:-16px;right:20px;background:var(--gold);color:var(--white);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:100px;white-space:nowrap}
+.en-content .label{font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--G2);margin-bottom:16px}
+.en-content h2{font-family:'Lora',serif;font-size:clamp(28px,3.5vw,40px);font-weight:700;color:var(--G1);line-height:1.2;margin-bottom:20px}
+.en-content p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:24px}
+.feature-list{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.feature-item{display:flex;align-items:flex-start;gap:14px}
+.feature-check{width:24px;height:24px;background:var(--G2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.feature-check svg{width:12px;height:12px;stroke:var(--white);stroke-width:2.5;fill:none}
+.feature-text strong{display:block;font-size:14px;font-weight:600;color:var(--G1)}
+.feature-text span{font-size:13px;color:var(--muted)}
+
+/* ─── IMPACT NUMBERS ─── */
+.impact{background:var(--G4);padding:80px 5vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.impact-inner{max-width:1000px;margin:0 auto;text-align:center}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:40px;margin-top:60px}
+.impact-item{}
+.impact-num{font-family:'Lora',serif;font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--G1);line-height:1}
+.impact-num sup{font-size:.4em;color:var(--G2);vertical-align:super}
+.impact-desc{font-size:13px;font-weight:500;color:var(--muted);margin-top:8px;line-height:1.5}
+.impact-divider{width:40px;height:2px;background:var(--G2);margin:16px auto 0}
+
+/* ─── SPEAKING / NETWORK ─── */
+.network{padding:100px 5vw;background:var(--cream)}
+.network-inner{max-width:1100px;margin:0 auto}
+.section-header-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:20px;flex-wrap:wrap}
+.section-header-row .left .label{font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--G2);margin-bottom:12px}
+.section-header-row .left h2{font-family:'Lora',serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--G1);line-height:1.2}
+.section-header-row .right{font-size:13px;color:var(--muted);max-width:320px;line-height:1.7}
+.engagement-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.eng-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer}
+.eng-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(30,57,50,.12)}
+.eng-img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;display:block;transition:transform .5s}
+.eng-card:hover .eng-img{transform:scale(1.05)}
+.eng-img-wrap{overflow:hidden;position:relative}
+.eng-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(30,57,50,.5) 0%,transparent 50%);opacity:0;transition:opacity .3s}
+.eng-card:hover .eng-img-wrap::after{opacity:1}
+.eng-body{padding:16px 18px 18px;border-top:3px solid var(--G3)}
+.eng-cat{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--G2);margin-bottom:6px}
+.eng-title{font-family:'Lora',serif;font-size:15px;font-weight:600;color:var(--G1);line-height:1.4}
+.eng-file{font-size:10px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gallery-cta{text-align:center;margin-top:48px}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials{background:var(--G1);padding:100px 5vw;overflow:hidden}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:48px auto 0}
+.testi-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:32px;position:relative}
+.testi-quote{font-family:'Lora',serif;font-size:56px;color:var(--G2);line-height:.8;margin-bottom:12px;font-style:italic}
+.testi-text{font-size:14px;line-height:1.8;color:rgba(255,255,255,.7);margin-bottom:24px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--G2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--white);flex-shrink:0}
+.testi-name{font-size:13px;font-weight:600;color:var(--white)}
+.testi-role{font-size:11px;color:rgba(255,255,255,.4)}
+
+/* ─── TIMELINE ─── */
+.timeline{padding:100px 5vw;background:var(--cream)}
+.timeline-inner{max-width:800px;margin:0 auto}
+.tl-list{margin-top:56px;position:relative}
+.tl-list::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--G3)}
+.tl-item{display:flex;gap:32px;padding-bottom:48px;position:relative}
+.tl-dot{width:42px;height:42px;border-radius:50%;background:var(--G1);border:3px solid var(--G2);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1}
+.tl-dot svg{width:16px;height:16px;stroke:var(--G3);fill:none;stroke-width:2}
+.tl-year{font-size:11px;font-weight:600;letter-spacing:.15em;color:var(--G2);margin-bottom:6px;text-transform:uppercase}
+.tl-title{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--G1);margin-bottom:8px}
+.tl-body{font-size:14px;line-height:1.75;color:var(--muted)}
+
+/* ─── CTA STRIP ─── */
+.cta-strip{background:var(--G2);padding:80px 5vw;text-align:center;position:relative;overflow:hidden}
+.cta-strip::before,.cta-strip::after{content:'';position:absolute;border-radius:50%;border:80px solid rgba(255,255,255,.05)}
+.cta-strip::before{width:600px;height:600px;right:-200px;top:-200px}
+.cta-strip::after{width:400px;height:400px;left:-150px;bottom:-150px}
+.cta-strip h2{font-family:'Lora',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--white);margin-bottom:16px;position:relative}
+.cta-strip p{font-size:15px;color:rgba(255,255,255,.65);max-width:480px;margin:0 auto 36px;line-height:1.75;position:relative}
+.cta-strip .btn-white{background:var(--white);color:var(--G1);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:16px 36px;border-radius:100px;display:inline-block;text-decoration:none;transition:transform .2s,box-shadow .2s;position:relative}
+.cta-strip .btn-white:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--G1);padding:60px 5vw 32px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:48px}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr}}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-logo .mark{width:36px;height:36px;background:var(--G2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:14px;font-weight:700;color:var(--white)}
+.footer-logo-name{font-family:'Lora',serif;font-size:18px;font-weight:600;color:var(--white)}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:300px;margin-bottom:24px}
+.footer-social{display:flex;gap:10px}
+.soc-btn{width:36px;height:36px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:background .25s}
+.soc-btn:hover{background:var(--G2)}
+.soc-btn svg{width:16px;height:16px;stroke:rgba(255,255,255,.6);fill:none;stroke-width:1.8}
+.footer-col h4{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .25s}
+.footer-col ul li a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.08em}
+
+/* ─── LIGHTBOX ─── */
+.lb{display:none;position:fixed;inset:0;z-index:9999;background:rgba(30,57,50,.97);align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:12px}
+.lb-close{position:absolute;top:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s}
+.lb-close:hover{background:var(--G2)}
+.lb-close svg{width:18px;height:18px;stroke:white;stroke-width:1.5;fill:none}
+
+/* ─── ANIMATIONS ─── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+.card-anim{opacity:0;transform:translateY(20px);animation:rise .55s forwards}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-mark">
+      <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="13" cy="13" r="12" fill="#1E3932"/>
+        <circle cx="13" cy="13" r="9" stroke="#00704A" stroke-width="1.5" fill="none"/>
+        <path d="M13 4C13 4 17 9 17 13C17 17 13 22 13 22C13 22 9 17 9 13C9 9 13 4 13 4Z" fill="#00704A"/>
+        <circle cx="13" cy="13" r="3" fill="#1E3932"/>
+      </svg>
+    </div>
+    <span class="nav-brand">Sini George</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#ezinurse">Ezi Nurse</a>
+    <a href="#network">Network</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Connect</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <svg class="hero-rings" width="800" height="800" viewBox="0 0 800 800">
+    <circle cx="400" cy="400" r="380" stroke-width="100"/>
+    <circle cx="400" cy="400" r="250" stroke-width="60"/>
+    <circle cx="400" cy="400" r="150" stroke-width="40"/>
+  </svg>
+  <svg class="hero-leaf" width="300" height="400" viewBox="0 0 300 400" fill="none">
+    <path d="M150 380 C150 380 280 280 280 160 C280 40 150 20 150 20 C150 20 20 40 20 160 C20 280 150 380 150 380Z" fill="white"/>
+    <path d="M150 380 L150 20" stroke="#1E3932" stroke-width="3"/>
+  </svg>
+
+  <div class="hero-eyebrow">Nursing Educator &amp; Digital Innovator</div>
+  <h1 class="hero-name">Mrs. Sini<br><em>George</em></h1>
+  <p class="hero-title">MSc Nursing · PhD Pursuing · COO, Ezi Nurse</p>
+  <p class="hero-desc">Transforming how nurses learn, practice, and lead — through evidence-based education, digital innovation, and deep community engagement across India.</p>
+  <div class="hero-actions">
+    <a href="#ezinurse" class="btn-primary">Explore Ezi Nurse</a>
+    <a href="#network" class="btn-outline">View Network</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-cell">
+      <div class="stat-num">15<span>+ yrs</span></div>
+      <div class="stat-label">Clinical &amp; Academic Experience</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">10k<span>+</span></div>
+      <div class="stat-label">Nurses Trained &amp; Mentored</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">50<span>+</span></div>
+      <div class="stat-label">Government &amp; Policy Engagements</div>
+    </div>
+  </div>
+</section>
+<svg class="wave-hero" viewBox="0 0 1440 70" preserveAspectRatio="none">
+  <path d="M0,45 C360,80 720,10 1080,45 C1260,62 1380,30 1440,45 L1440,70 L0,70Z"/>
+</svg>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left reveal">
+    <div class="about-label">About Mrs. Sini George</div>
+    <h2 class="about-heading">A <em>pioneer</em> reshaping nursing education in India</h2>
+    <p class="about-body">Mrs. Sini George is one of India's foremost nursing educators — a rare combination of <strong>clinical expertise, academic rigour, and entrepreneurial vision</strong>. With over 15 years in the field, she has trained thousands of nursing professionals and continues to push the boundaries of what healthcare education can look like in the digital age.</p>
+    <p class="about-body">As the <strong>Chief Operating Officer of Ezi Nurse</strong>, she leads the development of India's most nurse-centric edtech platform, bringing evidence-based practice, interactive learning, and exam preparation tools to nurses across the country — many of whom are in underserved communities.</p>
+    <div class="cred-list">
+      <div class="cred-item">
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="cred-text"><strong>MSc Nursing</strong><span>Specialisation in Medical-Surgical Nursing</span></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="cred-text"><strong>PhD Pursuing</strong><span>Nursing Research &amp; Evidence-Based Practice</span></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="cred-text"><strong>COO — Ezi Nurse</strong><span>India's emerging nursing edtech platform</span></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="cred-text"><strong>Government Liaison</strong><span>Active engagement with Karnataka ministry &amp; legislature</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="about-visual reveal">
+    <div class="about-card-stack">
+      <div class="about-main-card">
+        <div class="about-card-bg">SG</div>
+        <div class="about-card-content">
+          <div class="title">Nursing Educator & Innovator</div>
+          <div class="sub">Bengaluru, Karnataka · COO at Ezi Nurse<br>Changing how India learns nursing</div>
+        </div>
+      </div>
+      <div class="about-float">
+        <div class="num">10k+</div>
+        <div class="lbl">Nurses Trained</div>
+      </div>
+      <div class="about-float2">
+        <div class="af2-dot"></div>
+        <div class="af2-text">PhD Research in Progress</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
+  <svg class="expertise-rings" width="500" height="500" viewBox="0 0 500 500" fill="none">
+    <circle cx="250" cy="250" r="240" stroke="rgba(255,255,255,.04)" stroke-width="80"/>
+    <circle cx="250" cy="250" r="160" stroke="rgba(255,255,255,.04)" stroke-width="50"/>
+  </svg>
+  <div class="section-label-light reveal">Areas of Mastery</div>
+  <h2 class="section-heading-light reveal">Skills &amp; Expertise</h2>
+  <p class="section-sub-light reveal">Fifteen years of learning, teaching, and building — distilled into six pillars that define Mrs. Sini George's impact.</p>
+  <div class="expertise-grid">
+    <div class="exp-card reveal">
+      <div class="exp-num">01</div>
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div class="exp-title">Clinical Nursing Education</div>
+      <div class="exp-body">Designing and delivering curriculum for bedside nurses, nursing students, and faculty — bridging theory with real-world clinical practice.</div>
+      <div class="exp-tags"><span class="exp-tag">Curriculum Design</span><span class="exp-tag">Simulation</span><span class="exp-tag">Mentorship</span></div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-num">02</div>
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="exp-title">Digital Health &amp; Edtech</div>
+      <div class="exp-body">Building technology-first learning experiences for nurses — mobile-first platforms, adaptive quizzing, video lectures, and NCLEX-style prep tools.</div>
+      <div class="exp-tags"><span class="exp-tag">App Development</span><span class="exp-tag">LMS</span><span class="exp-tag">EdTech Strategy</span></div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-num">03</div>
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div class="exp-title">Evidence-Based Practice</div>
+      <div class="exp-body">Championing EBP adoption in Indian nursing through active research, publication, and integration of global best practices into local contexts.</div>
+      <div class="exp-tags"><span class="exp-tag">Research</span><span class="exp-tag">EBP</span><span class="exp-tag">Publication</span></div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-num">04</div>
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="exp-title">Policy &amp; Government Engagement</div>
+      <div class="exp-body">Actively engaging with Karnataka's Health Ministry, legislators, Governors, and senior ministers to advocate for nursing workforce development and healthcare policy reforms.</div>
+      <div class="exp-tags"><span class="exp-tag">Policy Advocacy</span><span class="exp-tag">Government Relations</span></div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-num">05</div>
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div class="exp-title">Strategic Leadership</div>
+      <div class="exp-body">As COO of Ezi Nurse, driving product strategy, team building, investor relations, and operational scale — from concept to a thriving edtech startup.</div>
+      <div class="exp-tags"><span class="exp-tag">Operations</span><span class="exp-tag">Startup Leadership</span><span class="exp-tag">Strategy</span></div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-num">06</div>
+      <div class="exp-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <div class="exp-title">Public Speaking &amp; Training</div>
+      <div class="exp-body">Keynote speaker, workshop facilitator, and faculty trainer at nursing conferences, government health programmes, and academic institutions across India.</div>
+      <div class="exp-tags"><span class="exp-tag">Keynotes</span><span class="exp-tag">Workshops</span><span class="exp-tag">Faculty Training</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EZI NURSE -->
+<section class="ezinurse" id="ezinurse">
+  <div class="en-inner">
+    <div class="en-phone reveal">
+      <div class="en-badge">Live &amp; Growing</div>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="phone-status"><span>9:41</span><span>●●●</span></div>
+          <div class="phone-app-logo">
+            <div class="dot">E</div>
+            <span>Ezi Nurse</span>
+          </div>
+          <div class="phone-card">
+            <div class="phone-card-label">Today's Lesson</div>
+            <div class="phone-card-title">Cardiovascular Nursing — Module 4</div>
+            <div class="phone-card-sub">Pathophysiology of Heart Failure</div>
+            <div class="phone-progress"><div class="phone-progress-fill" style="width:62%"></div></div>
+          </div>
+          <div class="phone-card">
+            <div class="phone-card-label">Practice Quiz</div>
+            <div class="phone-card-title">NCLEX-RN Style Questions</div>
+            <div class="phone-card-sub">28 questions · Pharmacology</div>
+            <div class="phone-progress"><div class="phone-progress-fill" style="width:35%;background:#CBA258"></div></div>
+          </div>
+          <div class="phone-stat-row">
+            <div class="phone-stat"><div class="n">87%</div><div class="l">Score</div></div>
+            <div class="phone-stat"><div class="n">14</div><div class="l">Streak</div></div>
+            <div class="phone-stat"><div class="n">320</div><div class="l">Points</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="en-content reveal">
+      <div class="label">Ezi Nurse — The App</div>
+      <h2>India's nurse-first learning platform, built from the <em>classroom up</em></h2>
+      <p>Ezi Nurse is not just another edtech app. It is a platform built by a nurse, for nurses — grounded in Mrs. Sini George's decade-long experience teaching, training, and understanding exactly where Indian nursing education falls short.</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="feature-text"><strong>Exam-Ready Preparation</strong><span>NCLEX, HAAD, MOH, DHA and Indian board-style practice questions, curated by expert educators</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="feature-text"><strong>Video Lectures by Clinical Experts</strong><span>High-quality, structured video content covering every nursing specialty — in English and vernacular languages</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="feature-text"><strong>Evidence-Based Learning Paths</strong><span>Structured, curriculum-aligned modules designed around the latest EBP standards and clinical guidelines</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="feature-text"><strong>Community &amp; Peer Learning</strong><span>Live doubt sessions, peer discussions, and mentorship from senior nursing professionals</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div class="feature-text"><strong>Analytics &amp; Progress Tracking</strong><span>Detailed performance dashboards so every student knows exactly where they stand and what to improve</span></div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary" style="display:inline-block">Learn More About Ezi Nurse</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<section class="impact">
+  <div class="impact-inner">
+    <div class="section-label-light" style="color:var(--G2)" class="reveal">Impact in Numbers</div>
+    <h2 class="section-heading-light" style="color:var(--G1)" class="reveal">A career measured in lives touched</h2>
+    <div class="impact-grid">
+      <div class="impact-item reveal">
+        <div class="impact-num">10k<sup>+</sup></div>
+        <div class="impact-divider"></div>
+        <div class="impact-desc">Nursing professionals trained &amp; mentored across India</div>
+      </div>
+      <div class="impact-item reveal">
+        <div class="impact-num">15<sup>+</sup></div>
+        <div class="impact-divider"></div>
+        <div class="impact-desc">Years of clinical and academic nursing experience</div>
+      </div>
+      <div class="impact-item reveal">
+        <div class="impact-num">50<sup>+</sup></div>
+        <div class="impact-divider"></div>
+        <div class="impact-desc">Government and ministerial policy engagements</div>
+      </div>
+      <div class="impact-item reveal">
+        <div class="impact-num">1</div>
+        <div class="impact-divider"></div>
+        <div class="impact-desc">Edtech platform changing how India learns nursing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK / GALLERY -->
+<section class="network" id="network">
+  <div class="network-inner">
+    <div class="section-header-row">
+      <div class="left">
+        <div class="label">Public Engagements</div>
+        <h2>A network built on<br>trust &amp; advocacy</h2>
+      </div>
+      <div class="right">From Karnataka's Governor to the Health Minister, Speakers of the Assembly, and senior Cabinet members — Mrs. Sini George has cultivated meaningful relationships at the highest levels of government.</div>
+    </div>
+    <div class="engagement-grid" id="gallery"></div>
+    <div class="gallery-cta reveal">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Showing all public engagement photographs</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label-light reveal">What People Say</div>
+  <h2 class="section-heading-light reveal">Voices from the community</h2>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Mrs. George's teaching transformed the way I approach patient care. Her ability to connect clinical science to real-world practice is unmatched. Ezi Nurse helped me clear my HAAD exam in the first attempt.</div>
+      <div class="testi-author"><div class="testi-avatar">RK</div><div><div class="testi-name">Rekha Krishnan, RN</div><div class="testi-role">Staff Nurse, Abu Dhabi</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-text">As a nursing faculty, I have attended her workshops and always walked away with something I could implement immediately. She understands the gap between textbook nursing and real practice better than anyone I know.</div>
+      <div class="testi-author"><div class="testi-avatar">AP</div><div><div class="testi-name">Dr. Anitha Pillai</div><div class="testi-role">Professor of Nursing, Kerala</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-text">Ezi Nurse is a revelation. High-quality content, structured learning paths, and the best question bank I have used. Mrs. Sini George has poured her life's experience into this platform and it shows.</div>
+      <div class="testi-author"><div class="testi-avatar">SM</div><div><div class="testi-name">Samuel Mathew, BScN</div><div class="testi-role">Final Year Nursing Student, Bengaluru</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline" id="journey">
+  <div class="timeline-inner">
+    <div class="section-label-light" style="color:var(--G2);text-align:left" class="reveal">Career Journey</div>
+    <h2 style="font-family:'Lora',serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--G1);margin-bottom:0" class="reveal">From bedside nurse<br>to <em style="font-style:italic;color:var(--G2)">edtech pioneer</em></h2>
+    <div class="tl-list">
+      <div class="tl-item reveal">
+        <div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div>
+          <div class="tl-year">Early Career</div>
+          <div class="tl-title">Clinical Nursing — Hospitals across Kerala &amp; Karnataka</div>
+          <div class="tl-body">Began her journey as a staff nurse, developing deep clinical expertise in medical-surgical, critical care, and community health settings. This hands-on foundation became the bedrock of everything she would later teach.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div>
+          <div class="tl-year">Academic Transition</div>
+          <div class="tl-title">MSc Nursing &amp; Faculty Role</div>
+          <div class="tl-body">Pursued postgraduate education in nursing, completing her MSc with distinction. Transitioned into nursing education as faculty, where she discovered her calling — teaching nurses to think, not just to follow protocols.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div>
+          <div class="tl-year">The Digital Turn</div>
+          <div class="tl-title">Co-founding &amp; Leading Ezi Nurse</div>
+          <div class="tl-body">Recognised the massive gap in quality digital learning resources for Indian nurses. Co-founded Ezi Nurse and took on the role of COO — driving product vision, content creation, and national outreach to build India's leading nursing edtech platform.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div>
+          <div class="tl-year">Now</div>
+          <div class="tl-title">PhD Research, Policy Advocacy &amp; National Impact</div>
+          <div class="tl-body">Currently pursuing her PhD while continuing to lead Ezi Nurse, engage with government stakeholders, speak at national conferences, and mentor thousands of nurses — committed to elevating the nursing profession at every level.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip" id="contact">
+  <h2>Ready to collaborate or connect?</h2>
+  <p>Whether you are a nursing institution, a government body, an investor, or a nurse looking to grow — Mrs. Sini George is open to meaningful conversations.</p>
+  <a href="mailto:sini@ezinurse.com" class="btn-white">Get In Touch</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <div class="mark">SG</div>
+        <span class="footer-logo-name">Mrs. Sini George</span>
+      </div>
+      <p class="footer-tagline">Nursing Educator · Digital Innovator · Policy Advocate. Transforming nursing education in India through evidence, technology, and purpose.</p>
+      <div class="footer-social">
+        <a href="#" class="soc-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#" class="soc-btn"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        <a href="#" class="soc-btn"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#ezinurse">Ezi Nurse App</a></li>
+        <li><a href="#network">Network</a></li>
+        <li><a href="#journey">Career Journey</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="mailto:sini@ezinurse.com">Email</a></li>
+        <li><a href="#">Ezi Nurse Platform</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Mrs. Sini George · Ezi Nurse. All rights reserved.</span>
+    <span class="footer-copy">Leadership &amp; Influence in Nursing Education &amp; Public Service</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+const photoData = [
+  { fileName:"with H.D. Revanna, ex minister, Karnataka.PNG", fileId:"1Yq6GBRl2Nbw2bnLDEv8aZ1l_y9CXUX1o", sortOrder:4 },
+  { fileName:"with karnataka ex- mla Ivan Nigli.jpeg", fileId:"1oC7X2TaBjyY0c6QpY92Jhaee6g4OQZ44", sortOrder:5 },
+  { fileName:"with minister of forest, karnataka (Eshwara Khandre).PNG", fileId:"16jN_pSaPbBwxwkgN-iY47E0L2aJ82JY2", sortOrder:3 },
+  { fileName:"WhatsApp Image 2025-10-16 at 7.07.55 PM.jpeg", fileId:"1fJ6zweArAKav4yuq1ggJbTO3bdQiD46B", sortOrder:6 },
+  { fileName:"with medical education minister, Karnataka, Dr. Sharan Prakash Patil - 2.PNG", fileId:"1JMVNssLFT1DNjz_Aajd1bBeF5VrRRiQr", sortOrder:3 },
+  { fileName:"with U. T. Khader, karnataka speaker.jpeg", fileId:"1DKI9HmRyp4jOWoEssEdbCzcIkwp7hdBe", sortOrder:3 },
+  { fileName:"WhatsApp Image 2025-10-16 at 6.57.12 PM.jpeg", fileId:"1d9KGdAKxNUTgQwIu3sEPas4sf2hsPzON", sortOrder:6 },
+  { fileName:"WhatsApp Image 2025-10-16 at 6.56.31 PM.jpeg", fileId:"16Sy3tl10kUn73_iEiDVvyUq2zNGRieeB", sortOrder:6 },
+  { fileName:"With health minister Karnataka.jpeg", fileId:"1YOLVFteEGqFYintS4f3U9HeqavbKaVp2", sortOrder:1 },
+  { fileName:"IMG_4255.JPG", fileId:"1u2umOZhotWCaczLKJlquzUfv2EWh7GtV", sortOrder:6 },
+  { fileName:"IMG_4188.JPG", fileId:"1Ztm_D29c2ya_qA1KxtC0Fv1TPfwpnWZs", sortOrder:6 },
+  { fileName:"IMG_4068.JPG", fileId:"1MsEil84CBwUYwHLx3vhu831jj8Ejr92R", sortOrder:6 },
+  { fileName:"2.JPG", fileId:"1yGV3zZcEikFnW1Gp3iNVDGuoiYV2K_D3", sortOrder:6 },
+  { fileName:"3.JPG", fileId:"1GLoRb0Q82qVkcfwhXtyylUtyKLdfbfwu", sortOrder:6 },
+  { fileName:"1.JPG", fileId:"1k2ISHOpas9cjSlr41ubW85EOYJpnjTu4", sortOrder:6 },
+  { fileName:"with medical education minister, Karnataka, Dr. Sharan Prakash Patil - 1.PNG", fileId:"1aHdQx954YX8gDDwFfCB4Lr6kn5OOnEBT", sortOrder:3 },
+  { fileName:"with health minister KA, DINESH GUNDU RAO.PNG", fileId:"17eqvUzTDOATiDwNLRR5XlvOgrj5AkrbY", sortOrder:1 },
+  { fileName:"with Karnataka Governor.PNG", fileId:"1Ueod8QB8KmdWjj9YR1t8r95vfJMuZCkC", sortOrder:2 },
+  { fileName:"with Karnataka Governor 2.JPG", fileId:"1LQI0DXzgRDVwNFqBUBGIqas0JgYDbpC4", sortOrder:2 },
+  { fileName:"Additional Image 1 (Requested).JPG", fileId:"1vZXBK5OtASAoGzq2ZwzwN65n-YOfe-hr", sortOrder:6 },
+  { fileName:"Additional Image 2 (Requested).JPG", fileId:"1dulvupwMJgO_66A70J6QQi7y5VMQkOBZ", sortOrder:6 }
+];
+
+const engCats = { 1:"Health Ministry", 2:"Governor", 3:"Cabinet & Legislature", 4:"Senior Leaders", 5:"Elected Representatives", 6:"Public Engagement" };
+
+function imgUrl(id,s){return`https://lh3.googleusercontent.com/d/${id}=${s||'s800'}`}
+function caption(fn){
+  const b=fn.replace(/\.[^/.]+$/,'').trim();
+  if(/^with /i.test(b)) return b.replace(/[_-]/g,' ').replace(/ (png|jpg|jpeg)$/i,'').trim();
+  if(/whatsapp/i.test(b)||/^\d+$/.test(b)||/^img_/i.test(b)) return 'Public Engagement';
+  return b.replace(/\(.+\)/,'').trim()||'Engagement';
+}
+
+photoData.sort((a,b)=>a.sortOrder-b.sortOrder||a.fileName.localeCompare(b.fileName));
+
+const gallery=document.getElementById('gallery');
+const lb=document.getElementById('lb');
+const lbImg=document.getElementById('lbImg');
+
+photoData.forEach((p,i)=>{
+  const cap=caption(p.fileName);
+  const cat=engCats[p.sortOrder]||'Public Engagement';
+  const card=document.createElement('div');
+  card.className='eng-card card-anim';
+  card.style.animationDelay=Math.min(i*40,600)+'ms';
+  card.innerHTML=`
+    <div class="eng-img-wrap">
+      <img class="eng-img" src="${imgUrl(p.fileId)}" alt="${cap}" loading="lazy">
+    </div>
+    <div class="eng-body">
+      <div class="eng-cat">${cat}</div>
+      <div class="eng-title">${cap}</div>
+      <div class="eng-file">${p.fileName}</div>
+    </div>`;
+  card.querySelector('img').onerror=function(){
+    this.closest('.eng-img-wrap').innerHTML='<div style="aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--G4);color:var(--G2);font-size:11px;padding:20px;text-align:center">Image unavailable — check Drive sharing</div>';
+  };
+  card.addEventListener('click',()=>{
+    lbImg.src=imgUrl(p.fileId,'s2000');lbImg.alt=cap;
+    lb.classList.add('open');document.body.style.overflow='hidden';
+  });
+  gallery.appendChild(card);
+});
+
+function closeLb(){lb.classList.remove('open');lbImg.src='';document.body.style.overflow='';}
+document.getElementById('lbClose').addEventListener('click',closeLb);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+
+// Reveal on scroll
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+},{threshold:0.12});
+reveals.forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
