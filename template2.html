@@ -58,8 +58,8 @@ nav {
   background: var(--G1);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: end;
-  min-height: 92vh;
+  align-items: center;
+  min-height: 75vh;
   position: relative;
   overflow: hidden;
 }
@@ -86,7 +86,7 @@ nav {
 
 /* LEFT — text */
 .intro {
-  padding: 80px 5vw 72px 5vw;
+  padding: 60px 5vw 60px 5vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,22 +97,21 @@ nav {
 /* RIGHT — standing photo */
 .hero-photo-col {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   position: relative;
   z-index: 1;
-  padding-top: 40px;
+  padding: 20px 0;
 }
 .hero-photo {
   width: 100%;
-  max-width: 480px;
+  max-width: 560px;
   height: auto;
   display: block;
   object-fit: contain;
-  object-position: bottom;
-  /* subtle fade at the very bottom so she blends into the section below */
-  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  object-position: center;
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }
 
 @media(max-width: 768px) {
