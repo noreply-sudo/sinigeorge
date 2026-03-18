@@ -53,30 +53,84 @@ nav {
   color: rgba(255,255,255,.4);
 }
 
-/* ── HERO PHOTO ── */
-.hero-photo {
-  width: 100%;
-  max-height: 90vh;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-}
-
-/* ── INTRO CARD ── */
-.intro {
+/* ── HERO TWO-COLUMN ── */
+.hero {
   background: var(--G1);
-  padding: 48px 5vw 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  min-height: 92vh;
   position: relative;
   overflow: hidden;
 }
-.intro::after {
+.hero::before {
   content: '';
   position: absolute;
-  right: -100px; top: -100px;
-  width: 400px; height: 400px;
+  right: -80px; top: -80px;
+  width: 500px; height: 500px;
   border-radius: 50%;
-  border: 70px solid rgba(255,255,255,.04);
+  border: 80px solid rgba(255,255,255,.04);
   pointer-events: none;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  left: -120px; bottom: -120px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  border: 60px solid rgba(255,255,255,.03);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* LEFT — text */
+.intro {
+  padding: 80px 5vw 72px 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* RIGHT — standing photo */
+.hero-photo-col {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 40px;
+}
+.hero-photo {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: bottom;
+  /* subtle fade at the very bottom so she blends into the section below */
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+@media(max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-photo-col {
+    order: -1;
+    padding-top: 60px;
+    max-height: 55vw;
+    overflow: hidden;
+  }
+  .hero-photo {
+    max-width: 260px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 .intro-eyebrow {
   font-size: 10px; font-weight: 600;
@@ -256,10 +310,10 @@ footer {
   <span class="nav-right">Network Profile</span>
 </nav>
 
-<!-- HERO PHOTO -->
-<img class="hero-photo" src="sini.png" alt="Mrs. Sini George">
+<!-- HERO: two-column -->
+<section class="hero">
 
-<!-- INTRO -->
+<!-- LEFT: text -->
 <div class="intro">
   <div class="intro-eyebrow">Nursing Educator &amp; Digital Innovator</div>
   <h1 class="intro-name">Mrs. Sini<br><em>George</em></h1>
@@ -272,7 +326,14 @@ footer {
     <span class="pill">Policy Advocacy</span>
     <span class="pill">Entrepreneurship</span>
   </div>
-</div>
+</div><!-- /intro -->
+
+  <!-- RIGHT: standing photo -->
+  <div class="hero-photo-col">
+    <img class="hero-photo" src="sini.png" alt="Mrs. Sini George">
+  </div>
+
+</section><!-- /hero -->
 
 <!-- WAVE -->
 <svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none">
