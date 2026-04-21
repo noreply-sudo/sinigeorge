@@ -330,7 +330,6 @@ footer {
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-left">
     <div class="nav-mark">
@@ -346,12 +345,10 @@ footer {
   <span class="nav-right">Network Profile</span>
 </nav>
 
-<!-- HERO: two-column -->
 <section class="hero">
 
-<!-- LEFT: text -->
 <div class="intro">
-  <div class="intro-eyebrow">Nursing Educator &amp; Digital Innovator</div>
+  <div class="intro-eyebrow">Nursing Educator & Digital Innovator</div>
   <h1 class="intro-name">Mrs. Sini<br><em>George</em></h1>
   <div class="intro-roles">
     <div class="role-coo">
@@ -359,32 +356,25 @@ footer {
       <span class="role-org">Ezi Nurse</span>
     </div>
     <div class="role-academic">
-      <span>MSc Nursing</span> &nbsp;·&nbsp; PhD Pursuing
+      <span>MSc Nursing</span>  ·  PhD Pursuing
     </div>
   </div>
   <p class="intro-bio">A nursing educator, researcher, and edtech entrepreneur dedicated to transforming how nurses learn and lead across India. Chief of Operations at Ezi Nurse — India's nurse-first digital learning platform.</p>
   <div class="intro-pills">
     <span class="pill">Clinical Education</span>
     <span class="pill">Digital Learning</span>
-    <span class="pill">Research &amp; EBP</span>
+    <span class="pill">Research & EBP</span>
     <span class="pill">Policy Advocacy</span>
     <span class="pill">Entrepreneurship</span>
   </div>
-</div><!-- /intro -->
-
-  <!-- RIGHT: standing photo -->
-  <div class="hero-photo-col">
+</div><div class="hero-photo-col">
     <img class="hero-photo" src="sini.png" alt="Mrs. Sini George">
   </div>
 
-</section><!-- /hero -->
-
-<!-- WAVE -->
-<svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none">
+</section><svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none">
   <path d="M0,30 C360,55 720,5 1080,30 C1260,42 1380,18 1440,30 L1440,50 L0,50Z"/>
 </svg>
 
-<!-- GALLERY -->
 <section class="gallery-section">
   <div class="gallery-head">
     <h2 class="gallery-title">Public Engagements</h2>
@@ -394,13 +384,11 @@ footer {
   <div class="gallery" id="gallery"></div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-name">Mrs. Sini George</span>
-  <span class="footer-note">Nursing Education &amp; Public Service</span>
+  <span class="footer-note">Nursing Education & Public Service</span>
 </footer>
 
-<!-- LIGHTBOX -->
 <div class="lb" id="lb">
   <button class="lb-close" id="lbClose">
     <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -412,6 +400,10 @@ footer {
 
 <script>
 const photos = [
+  { fileName:"with_cm_1.jpeg", fileId:"", sortOrder:-1, localFile:true, customCaption:"With Siddaramaiah, Chief Minister of Karnataka" },
+  { fileName:"with_cm_2.jpeg", fileId:"", sortOrder:-1, localFile:true, customCaption:"With Siddaramaiah, Chief Minister of Karnataka" },
+  { fileName:"with_cm_3.jpeg", fileId:"", sortOrder:-1, localFile:true, customCaption:"With Siddaramaiah, Chief Minister of Karnataka" },
+  { fileName:"with_bgs.png", fileId:"", sortOrder:3, localFile:true, customCaption:"With Sri Sri Prakashnath Swamiji, Managing Director, BGS Group of Institutions" },
   { fileName:"with H.D. Revanna, Ex Minister, Karnataka.PNG", fileId:"1Yq6GBRl2Nbw2bnLDEv8aZ1l_y9CXUX1o", sortOrder:6 },
   { fileName:"with Karnataka Ex- MLA Ivan Nigli.jpeg", fileId:"1oC7X2TaBjyY0c6QpY92Jhaee6g4OQZ44", sortOrder:7 },
   { fileName:"with Minister of Forest, Karnataka (Eshwara Khandre).PNG", fileId:"16jN_pSaPbBwxwkgN-iY47E0L2aJ82JY2", sortOrder:4 },
@@ -437,7 +429,7 @@ const photos = [
   { fileName:"with_venkatesh.jpeg", fileId:"", sortOrder:4, localFile:true, customCaption:"With K. Venkatesh, Minister For Animal Husbandry and Sericulture, Karnataka" }
 ];
 
-const cats = { 0:"Health Ministry", 1:"Governor", 2:"Chief Secretary of Karnataka", 3:"Education & Professional Bodies", 4:"Cabinet & Legislature", 5:"Senior Leaders", 6:"Senior Leaders", 7:"Elected Representatives", 8:"Public Engagement", 9:"Healthcare Leadership" };
+const cats = { "-1":"Chief Minister", 0:"Health Ministry", 1:"Governor", 2:"Chief Secretary of Karnataka", 3:"Education & Professional Bodies", 4:"Cabinet & Legislature", 5:"Senior Leaders", 6:"Senior Leaders", 7:"Elected Representatives", 8:"Public Engagement", 9:"Healthcare Leadership" };
 
 function imgUrl(id, s) { return `https://lh3.googleusercontent.com/d/${id}=${s||'s800'}`; }
 function caption(fn) {
